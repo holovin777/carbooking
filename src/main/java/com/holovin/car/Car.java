@@ -9,6 +9,7 @@ public class Car {
     private Engine engineType;
     private String regNumber;
     private BigDecimal price;
+    private boolean booked;
 
     public Car(Long id, String brandName, Engine engineType, String regNumber, BigDecimal price) {
         this.id = id;
@@ -16,6 +17,7 @@ public class Car {
         this.engineType = engineType;
         this.regNumber = regNumber;
         this.price = price;
+        this.booked = false;
     }
 
     public Long getId() {
@@ -58,17 +60,25 @@ public class Car {
         this.price = price;
     }
 
+    public boolean isBooked() {
+        return booked;
+    }
+
+    public void setBooked(boolean booked) {
+        this.booked = booked;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return Objects.equals(id, car.id) && Objects.equals(brandName, car.brandName) && engineType == car.engineType && Objects.equals(regNumber, car.regNumber) && Objects.equals(price, car.price);
+        return booked == car.booked && Objects.equals(id, car.id) && Objects.equals(brandName, car.brandName) && engineType == car.engineType && Objects.equals(regNumber, car.regNumber) && Objects.equals(price, car.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, brandName, engineType, regNumber, price);
+        return Objects.hash(id, brandName, engineType, regNumber, price, booked);
     }
 
     @Override
@@ -79,6 +89,7 @@ public class Car {
                 ", engineType=" + engineType +
                 ", regNumber='" + regNumber + '\'' +
                 ", price=" + price +
+                ", booked=" + booked +
                 '}';
     }
 }

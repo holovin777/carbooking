@@ -10,7 +10,7 @@ public class CustomerDao {
                 new Customer(UUID.randomUUID(), "Azzurra", "customer")
         };
     }
-    public Customer[] getCustomers() {
+    public static Customer[] getCustomers() {
         return customers;
     }
 }

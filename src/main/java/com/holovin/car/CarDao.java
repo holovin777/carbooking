@@ -11,7 +11,7 @@ public class CarDao {
                 new Car(3L, "Giguli", Engine.INTERNAL_COMBUSTION_ENGINE, "XA888XA", new BigDecimal("78.98"))
         };
     }
-    public Car[] getCars() {
+    public static Car[] getCars() {
         return cars;
     }
 }
